@@ -34,14 +34,14 @@ import (
 // Config holds all (subdependency)Configs needed to run the API
 type Config struct {
 	ConfigFilepath   string
-	MetricsNamespace string `yaml:"metricsNamespace"`
-	ServeFrontend    bool   `yaml:"serveFrontend"` // useful for local development where we want the frontend from 'npm run start'
+	MetricsNamespace string `yaml:"metricsNamespace" json:"metricsNamespace"`
+	ServeFrontend    bool   `yaml:"serveFrontend", json:"serveFrontend"` // useful for local development where we want the frontend from 'npm run start'
 
-	Console console.Config `yaml:"console"`
-	Connect connect.Config `yaml:"connect"`
-	REST    rest.Config    `yaml:"server"`
-	Kafka   kafka.Config   `yaml:"kafka"`
-	Logger  logging.Config `yaml:"logger"`
+	Console console.Config `yaml:"console" json:"console"`
+	Connect connect.Config `yaml:"connect" json:"connect"`
+	REST    rest.Config    `yaml:"server" json:"server"`
+	Kafka   kafka.Config   `yaml:"kafka" json:"kafka"`
+	Logger  logging.Config `yaml:"logger" json:"logger"`
 }
 
 // RegisterFlags for all (sub)configs

@@ -14,9 +14,9 @@ import (
 )
 
 type RepositoryConfig struct {
-	URL           string `yaml:"url"`
-	Branch        string `yaml:"branch"`
-	BaseDirectory string `yaml:"baseDirectory"`
+	URL           string `yaml:"url" json:"url"`
+	Branch        string `yaml:"branch" json:"branch"`
+	BaseDirectory string `yaml:"baseDirectory" json:"baseDirectory"`
 }
 
 // Validate given input for config properties

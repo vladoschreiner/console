@@ -16,7 +16,7 @@ import (
 
 // SASLOAuthBearer is the config struct for the SASL OAuthBearer mechanism
 type SASLOAuthBearer struct {
-	Token string `yaml:"token"`
+	Token string `yaml:"token" json:"token"`
 }
 
 // RegisterFlags registers all sensitive Kerberos settings as flag

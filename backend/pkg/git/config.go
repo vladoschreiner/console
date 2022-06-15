@@ -17,27 +17,27 @@ import (
 
 // Config for Git Service
 type Config struct {
-	Enabled bool `yaml:"enabled"`
+	Enabled bool `yaml:"enabled" json:"enabled"`
 
 	// AllowedFileExtensions specifies file extensions that shall be picked up. If at least one is specified all other
 	// file extensions will be ignored.
-	AllowedFileExtensions []string `yaml:"-"`
+	AllowedFileExtensions []string `yaml:"-" json:"-"`
 
 	// Max file size which will be considered. Files exceeding this size will be ignored and logged.
-	MaxFileSize int64 `yaml:"-"`
+	MaxFileSize int64 `yaml:"-" json:"-"`
 
 	// Whether or not to use the filename or the full filepath as key in the map
-	IndexByFullFilepath bool `yaml:"-"`
+	IndexByFullFilepath bool `yaml:"-" json:"-"`
 
 	// RefreshInterval specifies how often the repository shall be pulled to check for new changes.
-	RefreshInterval time.Duration `yaml:"refreshInterval"`
+	RefreshInterval time.Duration `yaml:"refreshInterval" json:"refreshInterval"`
 
 	// Repository that contains markdown files that document a Kafka topic.
-	Repository RepositoryConfig `yaml:"repository"`
+	Repository RepositoryConfig `yaml:"repository" json:"repository"`
 
 	// Authentication Configs
-	BasicAuth BasicAuthConfig `yaml:"basicAuth"`
-	SSH       SSHConfig       `yaml:"ssh"`
+	BasicAuth BasicAuthConfig `yaml:"basicAuth" json:"basicAuth"`
+	SSH       SSHConfig       `yaml:"ssh" json:"ssh"`
 }
 
 // RegisterFlagsWithPrefix for all (sub)configs
@@ -61,7 +61,7 @@ func (c *Config) Validate() error {
 // SetDefaults for all root and child config structs
 func (c *Config) SetDefaults() {
 	c.Repository.SetDefaults()
-	
+
 	c.RefreshInterval = time.Minute
 	c.MaxFileSize = 500 * 1000 // 500KB
 	c.IndexByFullFilepath = false

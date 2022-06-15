@@ -16,11 +16,11 @@ import (
 )
 
 type Config struct {
-	Enabled        bool            `yaml:"enabled"`
-	Clusters       []ConfigCluster `yaml:"clusters"`
-	ConnectTimeout time.Duration   `yaml:"connectTimeout"` // used for connectivity test
-	ReadTimeout    time.Duration   `yaml:"readTimeout"`    // overall REST/HTTP read timeout
-	RequestTimeout time.Duration   `yaml:"requestTimeout"` // timeout for REST requests to Kafka Connect
+	Enabled        bool            `yaml:"enabled" json:"enabled"`
+	Clusters       []ConfigCluster `yaml:"clusters" json:"clusters"`
+	ConnectTimeout time.Duration   `yaml:"connectTimeout" json:"connectTimeout"` // used for connectivity test
+	ReadTimeout    time.Duration   `yaml:"readTimeout" json:"readTimeout"`       // overall REST/HTTP read timeout
+	RequestTimeout time.Duration   `yaml:"requestTimeout" json:"requestTimeout"` // timeout for REST requests to Kafka Connect
 }
 
 func (c *Config) SetDefaults() {

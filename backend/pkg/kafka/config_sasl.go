@@ -25,13 +25,13 @@ const (
 
 // SASLConfig for Kafka client
 type SASLConfig struct {
-	Enabled      bool             `yaml:"enabled"`
-	Username     string           `yaml:"username"`
-	Password     string           `yaml:"password"`
-	Mechanism    string           `yaml:"mechanism"`
-	OAUth        SASLOAuthBearer  `yaml:"oauth"`
-	GSSAPIConfig SASLGSSAPIConfig `yaml:"gssapi"`
-	AWSMskIam    SASLAwsMskIam    `yaml:"awsMskIam"`
+	Enabled      bool             `yaml:"enabled" json:"enabled"`
+	Username     string           `yaml:"username" json:"username"`
+	Password     string           `yaml:"password" json:"password"`
+	Mechanism    string           `yaml:"mechanism" json:"mechanism"`
+	OAUth        SASLOAuthBearer  `yaml:"oauth" json:"oauth"`
+	GSSAPIConfig SASLGSSAPIConfig `yaml:"gssapi" json:"gssapi"`
+	AWSMskIam    SASLAwsMskIam    `yaml:"awsMskIam" json:"awsMskIam"`
 }
 
 // RegisterFlags for all sensitive Kafka SASL configs.

@@ -16,18 +16,18 @@ import (
 
 // SASLGSSAPIConfig represents the Kafka Kerberos config
 type SASLGSSAPIConfig struct {
-	AuthType           string `yaml:"authType"`
-	KeyTabPath         string `yaml:"keyTabPath"`
-	KerberosConfigPath string `yaml:"kerberosConfigPath"`
-	ServiceName        string `yaml:"serviceName"`
-	Username           string `yaml:"username"`
-	Password           string `yaml:"password"`
-	Realm              string `yaml:"realm"`
+	AuthType           string `yaml:"authType" json:"authType"`
+	KeyTabPath         string `yaml:"keyTabPath" json:"keyTabPath"`
+	KerberosConfigPath string `yaml:"kerberosConfigPath" json:"kerberosConfigPath"`
+	ServiceName        string `yaml:"serviceName" json:"serviceName"`
+	Username           string `yaml:"username" json:"username"`
+	Password           string `yaml:"password" json:"password"`
+	Realm              string `yaml:"realm" json:"realm"`
 
 	// EnableFAST enables FAST, which is a pre-authentication framework for Kerberos.
 	// It includes a mechanism for tunneling pre-authentication exchanges using armoured KDC messages.
 	// FAST provides increased resistance to passive password guessing attacks.
-	EnableFast bool `yaml:"enableFast"`
+	EnableFast bool `yaml:"enableFast" json:"enableFast"`
 }
 
 // RegisterFlags registers all sensitive Kerberos settings as flag

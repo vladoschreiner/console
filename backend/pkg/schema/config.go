@@ -16,16 +16,16 @@ import (
 
 // Config for using a (Confluent) Schema Registry
 type Config struct {
-	Enabled bool     `yaml:"enabled"`
-	URLs    []string `yaml:"urls"`
+	Enabled bool     `yaml:"enabled" json:"enabled"`
+	URLs    []string `yaml:"urls" json:"urls"`
 
 	// Credentials
-	Username    string `yaml:"username"`
-	Password    string `yaml:"password"`
-	BearerToken string `yaml:"bearerToken"`
+	Username    string `yaml:"username" json:"username"`
+	Password    string `yaml:"password" json:"password"`
+	BearerToken string `yaml:"bearerToken" json:"bearerToken"`
 
 	// TLS / Custom CA
-	TLS TLSConfig `yaml:"tls"`
+	TLS TLSConfig `yaml:"tls" json:"tls"`
 }
 
 // RegisterFlags registers all nested config flags.

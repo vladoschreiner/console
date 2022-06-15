@@ -11,9 +11,9 @@ package schema
 
 // TLSConfig to connect to Schema via TLS
 type TLSConfig struct {
-	Enabled               bool   `yaml:"enabled"`
-	CaFilepath            string `yaml:"caFilepath"`
-	CertFilepath          string `yaml:"certFilepath"`
-	KeyFilepath           string `yaml:"keyFilepath"`
-	InsecureSkipTLSVerify bool   `yaml:"insecureSkipTlsVerify"`
+	Enabled               bool   `yaml:"enabled" json:"enabled"`
+	CaFilepath            string `yaml:"caFilepath" json:"caFilepath"`
+	CertFilepath          string `yaml:"certFilepath" json:"certFilepath"`
+	KeyFilepath           string `yaml:"keyFilepath" json:"keyFilepath"`
+	InsecureSkipTLSVerify bool   `yaml:"insecureSkipTlsVerify" json:"insecureSkipTLSVerify"`
 }

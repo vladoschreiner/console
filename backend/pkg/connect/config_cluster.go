@@ -16,16 +16,16 @@ import (
 
 type ConfigCluster struct {
 	// Name will be shown in the Frontend to identify a connect cluster
-	Name string `yaml:"name"`
+	Name string `yaml:"name" json:"name"`
 	// URL is the HTTP address that will be set as base url for all requests
-	URL string `yaml:"url"`
+	URL string `yaml:"url" json:"url"`
 
 	// Authentication configuration
 	//
-	TLS      ConfigClusterTLS `yaml:"tls"`
-	Username string           `yaml:"username"`
-	Password string           `yaml:"password"`
-	Token    string           `yaml:"token"`
+	TLS      ConfigClusterTLS `yaml:"tls" json:"tls"`
+	Username string           `yaml:"username" json:"username"`
+	Password string           `yaml:"password" json:"password"`
+	Token    string           `yaml:"token" json:"token"`
 }
 
 // RegisterFlagsWithPrefix registers all nested config flags.

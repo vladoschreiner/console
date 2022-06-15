@@ -12,11 +12,11 @@ package git
 import "flag"
 
 type SSHConfig struct {
-	Enabled            bool   `yaml:"enabled"`
-	Username           string `yaml:"username"`
-	PrivateKey         string `yaml:"privateKey"` // user can either pass the key directly or let RP Console load it from disk
-	PrivateKeyFilePath string `yaml:"privateKeyFilepath"`
-	Passphrase         string `yaml:"passphrase"`
+	Enabled            bool   `yaml:"enabled" json:"enabled"`
+	Username           string `yaml:"username" json:"username"`
+	PrivateKey         string `yaml:"privateKey" json:"privateKey"` // user can either pass the key directly or let RP Console load it from disk
+	PrivateKeyFilePath string `yaml:"privateKeyFilepath" json:"privateKeyFilePath"`
+	Passphrase         string `yaml:"passphrase" json:"passphrase"`
 }
 
 // RegisterFlagsWithPrefix for sensitive SSH configs

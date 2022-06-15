@@ -15,13 +15,13 @@ import (
 
 // Config represents the message pack config.
 type Config struct {
-	Enabled bool `yaml:"enabled"`
+	Enabled bool `yaml:"enabled" json:"enabled"`
 
 	// TopicNames is a list of topic names that shall be considered for messagepack decoding.
 	// These names can be provided as regex string (e. g. "/.*/" or "/prefix-.*/") or as plain topic name
 	// such as "frontend-activities".
 	// This defaults to `/.*/`
-	TopicNames []string `yaml:"topicNames"`
+	TopicNames []string `yaml:"topicNames" json:"topicNames"`
 }
 
 // Validate if provided TopicNames are valid.

@@ -15,7 +15,7 @@ import (
 )
 
 type Config struct {
-	TopicDocumentation ConfigTopicDocumentation `yaml:"topicDocumentation"`
+	TopicDocumentation ConfigTopicDocumentation `yaml:"topicDocumentation" json:"topicDocumentation"`
 }
 
 func (c *Config) SetDefaults() {
