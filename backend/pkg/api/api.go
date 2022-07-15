@@ -16,7 +16,6 @@ import (
 	"github.com/cloudhut/common/rest"
 	"github.com/redpanda-data/console/backend/pkg/connect"
 	"github.com/redpanda-data/console/backend/pkg/console"
-	"github.com/redpanda-data/console/backend/pkg/embed"
 	"github.com/redpanda-data/console/backend/pkg/git"
 	"github.com/redpanda-data/console/backend/pkg/kafka"
 	"github.com/redpanda-data/console/backend/pkg/version"
@@ -67,19 +66,14 @@ func New(cfg *Config, opts ...Option) *API {
 
 	// Use default frontend resources from embeds. They may be overridden via functional options.
 	// We don't use hooks here because we may want to use the API struct without providing all hooks.
-	fsys, err := fs.Sub(embed.FrontendFiles, "frontend")
-	if err != nil {
-		logger.Fatal("failed to build subtree from embedded frontend files", zap.Error(err))
-	}
 
 	a := &API{
-		Cfg:               cfg,
-		Logger:            logger,
-		KafkaSvc:          kafkaSvc,
-		ConsoleSvc:        consoleSvc,
-		ConnectSvc:        connectSvc,
-		Hooks:             newDefaultHooks(),
-		FrontendResources: fsys,
+		Cfg:        cfg,
+		Logger:     logger,
+		KafkaSvc:   kafkaSvc,
+		ConsoleSvc: consoleSvc,
+		ConnectSvc: connectSvc,
+		Hooks:      newDefaultHooks(),
 	}
 	for _, opt := range opts {
 		opt(a)
